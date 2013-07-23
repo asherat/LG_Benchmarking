@@ -8,6 +8,7 @@ for filename in $dir/lg?/HW/HW_*; do
 	fi
 done
 
+a=$(($a/1024))
 a=$((($a/1000+1)*1000)) #ROUNDED
 #echo RAM $a MB
 echo $a > ram.max

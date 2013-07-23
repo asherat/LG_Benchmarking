@@ -39,9 +39,9 @@ set bmargin at screen bot(currentplot,n,h,t,b)
 unset key
 set xtics jumps format ""
 set y2label 'MASTER'
-plot dir.'lg1'.file_city every::1 using 1:3 with lines title "city", \
-dir.'lg1'.file_town using 1:3 with lines title "town", \
-dir.'lg1'.file_desert using 1:3 with lines title "desert"
+plot dir.'lg1'.file_city every::1 using 1:($3/1024) with lines title "city", \
+dir.'lg1'.file_town using 1:($3/1024) with lines title "town", \
+dir.'lg1'.file_desert using 1:($3/1024) with lines title "desert"
 ### Middle plot
 # copy and paste this code to make more middle plots
 currentplot = currentplot + 1.2
@@ -50,9 +50,9 @@ set bmargin at screen bot(currentplot,n,h,t,b)
 
 unset title
 set y2label 'SLAVE 1'
-plot dir.'lg2'.file_city every::1 using 1:3 with lines title "city", \
-dir.'lg2'.file_town using 1:3 with lines title "town", \
-dir.'lg2'.file_desert using 1:3 with lines title "desert"
+plot dir.'lg2'.file_city every::1 using 1:($3/1024) with lines title "city", \
+dir.'lg2'.file_town using 1:($3/1024) with lines title "town", \
+dir.'lg2'.file_desert using 1:($3/1024) with lines title "desert"
 ### Last plot
 # change only plot command here
 currentplot = currentplot + 1.2
@@ -62,9 +62,9 @@ set bmargin at screen bot(currentplot,n,h,t,b)
 set xtics jumps format "%0.0f"
 set xlabel "Time (s) [".jumps."s between jumps]"
 set y2label 'SLAVE 2'
-plot dir.'lg3'.file_city every::1 using 1:3 with lines title "city", \
-dir.'lg3'.file_town using 1:3 with lines title "town", \
-dir.'lg3'.file_desert using 1:3 with lines title "desert"
+plot dir.'lg3'.file_city every::1 using 1:($3/1024) with lines title "city", \
+dir.'lg3'.file_town using 1:($3/1024) with lines title "town", \
+dir.'lg3'.file_desert using 1:($3/1024) with lines title "desert"
 ### Last (key) plot
 set tmargin at screen bot(n,n,h,t,30)
 set bmargin at screen 0

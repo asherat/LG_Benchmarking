@@ -13,9 +13,9 @@ echo "Creating '$temp' dir"
 mkdir $temp
 
 echo "Chopping '$PacketsFile' file"
-tshark -r $PacketsFile -R "tcp && !(ip.addr==10.42.42.1 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.3))" $temp/external.pcap
-tshark -r $PacketsFile -R "ip.addr==10.42.42.1 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.3)" -w $temp/squid.pcap 
-tshark -r $PacketsFile -R ip.dst==10.42.42.255 -w $temp/viewsync.pcap 
+tshark -r $PacketsFile -R "!udp && !(ip.addr==10.42.42.1 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.3) || ip.addr==10.42.42.2 && (ip.addr==10.42.42.1 || ip.addr==10.42.42.3) || ip.addr==10.42.42.3 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.1))" -w $temp/external.pcap 
+tshark -r $PacketsFile -R "ip.addr==10.42.42.1 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.3) || ip.addr==10.42.42.2 && (ip.addr==10.42.42.1 || ip.addr==10.42.42.3) || ip.addr==10.42.42.3 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.1)" -w $temp/squid.pcap 
+tshark -r $PacketsFile -R "ip.dst==10.42.42.255" -w $temp/viewsync.pcap 
 echo "Done Chopping '$PacketsFile' file"
 
 echo "Generating tshark reports"

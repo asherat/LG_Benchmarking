@@ -27,7 +27,7 @@ set term pngcairo enhanced size 800,h font 'Helvetica,14'
 set output 'tcp_ext.png'
 
 #set title 'Big Key Plot'
-set ylabel 'TCP Usage (MB/s)'
+set ylabel 'TCP Usage (KB/s)'
 
 set datafile separator ','
 set multiplot layout (n+1),1
