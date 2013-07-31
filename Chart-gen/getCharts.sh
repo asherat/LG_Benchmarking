@@ -10,6 +10,7 @@
 ./tcp_squid-s.sh
 ./tcp_viewsync.sh
 ./tcp_viewsync-s.sh
+./UXL.sh
 mkdir Charts
 mv *.png Charts
 rm *.max

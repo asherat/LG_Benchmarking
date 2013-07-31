@@ -17,6 +17,7 @@ exeLGbgtt=/home/lg/bin/lg-run-bg-tt
 
 tempt='top -b -d 1 -p $(cat /tmp/Earth.tmp) > '$TopOut' &'
 mem_cmd='cat /proc/$(cat /tmp/Earth.tmp)/status | grep VmRSS'
+cat /dev/null > $MemOut
 tempm='watch -n 1 "'$mem_cmd' >> '$MemOut' &" > /dev/null 2>&1'
 
 if [ -r $filepath ] ; then
