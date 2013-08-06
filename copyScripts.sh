@@ -1,9 +1,12 @@
 #!/bin/bash
+#Allows to copy all scripts to other nodes
+MY_PATH="`dirname \"$0\"`"
+. $MY_PATH/variables.conf
 
-lg-run-slaves "mkdir /home/lg/Benchmarking/Results; scp -r lg1:/home/lg/Benchmarking/Results/*.sh /home/lg/Benchmarking/Results/ && chmod +x /home/lg/Benchmarking/Results/*.sh"
+exeLGslaves "mkdir $scriptsDir; scp -r lg1:scriptsDir/* scriptsDir/ && chmod +x scriptsDir/*.sh"
 
-chmod +x /home/lg/Benchmarking/Results/*.sh
-chmod +x /home/lg/Benchmarking/Scripts/*.sh
-chmod +x /home/lg/Benchmarking/Tools/*.sh
+chmod +x $scriptsDir/*.sh
+chmod +x $toolsDir/*.sh
+
 
 
