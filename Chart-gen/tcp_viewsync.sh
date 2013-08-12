@@ -2,7 +2,7 @@
 
 dir='./../Results/Resumen/'
 file_city='/NW/NW_viewsync-bcn.top.csv'
-file_town='/NW/NW_viewsync-lleida.top.csv'
+file_town='/NW/NW_viewsync-Horsens.top.csv'
 file_desert='/NW/NW_viewsync-desierto.top.csv'
 
 jumps=15
@@ -28,7 +28,7 @@ set term pngcairo enhanced size 800,h font 'Helvetica,14'
 set output 'tcp_viewsync.png'
 
 #set title 'Big Key Plot'
-set ylabel 'TCP Usage (MB/s)'
+set ylabel 'TCP Usage (KB/s)'
 
 set datafile separator ','
 set multiplot layout (n+1),1

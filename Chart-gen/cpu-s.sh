@@ -2,10 +2,11 @@
 
 dir='./../Results/Resumen/'
 file_city='/HW/HW_bcn-s.top.csv'
-file_town='/HW/HW_lleida-s.top.csv'
+file_town='/HW/HW_Horsens-s.top.csv'
 file_desert='/HW/HW_desierto-s.top.csv'
 
-jumps=30
+jumps=60
+
 set yrange [0:100]
 ### n: change this parameter to equal the number of data sets to be plotted
 n = 3

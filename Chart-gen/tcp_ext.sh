@@ -2,10 +2,10 @@
 
 dir='./../Results/Resumen/'
 file_city='/NW/NW_ext-bcn.top.csv'
-file_town='/NW/NW_ext-lleida.top.csv'
+file_town='/NW/NW_ext-Horsens.top.csv'
 file_desert='/NW/NW_ext-desierto.top.csv'
 
-jumps=15
+jumps=30
 
 var1="`cat tcp.max`"
 set yrange [0:var1]

@@ -2,10 +2,10 @@
 
 dir='./../Results/Resumen/'
 file_city='/NW/NW_squid-bcn.top.csv'
-file_town='/NW/NW_squid-lleida.top.csv'
+file_town='/NW/NW_squid-Horsens.top.csv'
 file_desert='/NW/NW_squid-desierto.top.csv'
 
-jumps=15
+jumps=30
 
 var1="`cat tcp.max`"
 set yrange [0:var1]
@@ -27,7 +27,7 @@ set term pngcairo enhanced size 800,h font 'Helvetica,14'
 set output 'tcp_squid.png'
 
 #set title 'Big Key Plot'
-set ylabel 'TCP Usage (MB/s)'
+set ylabel 'TCP Usage (KB/s)'
 
 set datafile separator ','
 set multiplot layout (n+1),1

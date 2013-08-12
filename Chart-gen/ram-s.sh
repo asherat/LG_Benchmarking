@@ -2,10 +2,10 @@
 
 dir='./../Results/Resumen/'
 file_city='/HW/HW_bcn-s.top.csv'
-file_town='/HW/HW_lleida-s.top.csv'
+file_town='/HW/HW_Horsens-s.top.csv'
 file_desert='/HW/HW_desierto-s.top.csv'
 
-jumps=30
+jumps=60
 
 var1="`cat ram.max`"
 set yrange [0:var1]
