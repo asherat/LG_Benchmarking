@@ -1,6 +1,6 @@
 #!/bin/bash
 a=0
-dir='./../Results/Resumen'
+dir='./../Results/Summary'
 for filename in $dir/lg?/HW/HW_*; do
     b=$(tail -n +4 "$filename" | awk -F "," '{if(max==""){max=$3}; if($3>max) {max=$3};} END {print max}')
 	if [ $a -lt $b ]; then
