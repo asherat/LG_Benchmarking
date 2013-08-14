@@ -1,4 +1,9 @@
 #!/bin/bash
-gnuplot charts.gnu
 mkdir Charts
+./UXL.sh
+
+./getmax.sh
+gnuplot charts.gnu
+
 mv *.png Charts
+rm *.max

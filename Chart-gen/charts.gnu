@@ -5,9 +5,12 @@ file_city='/HW/HW_bcn.top.csv'
 file_town='/HW/HW_Horsens.top.csv'
 file_desert='/HW/HW_desierto.top.csv'
 n = 3 ### n: change this parameter to equal the number of LG-nodes
+max_ram="`cat ram.max`"
+max_tcp="`cat tcp.max`"
 #-----------------------------------------------------------------------------------
 #-----------------------Short Timing Jump--------------------------
 #-----------------------------------------------------------------------------------
+
 jumps=30
 #-----------------------------------------
 #CPU
@@ -21,7 +24,8 @@ load "plotting.gnu"
 
 #-----------------------------------------
 #RAM
-set yrange [0:3000]
+
+set yrange [0:max_ram]
 set output 'ram.png'
 load "config.gnu"
 set ylabel 'RAM Usage MB'
@@ -35,7 +39,8 @@ file_city='/NW/NW_ext-bcn.top.csv'
 file_town='/NW/NW_ext-Horsens.top.csv'
 file_desert='/NW/NW_ext-desierto.top.csv'
 
-set yrange [0:3000]
+set yrange [0:max_tcp]
+#set yrange [0:3000]
 set output 'tcp_ext.png'
 load "config.gnu"
 set ylabel 'External KB/s'
@@ -48,7 +53,8 @@ file_city='/NW/NW_squid-bcn.top.csv'
 file_town='/NW/NW_squid-Horsens.top.csv'
 file_desert='/NW/NW_squid-desierto.top.csv'
 
-set yrange [0:3000]
+set yrange [0:max_tcp]
+#set yrange [0:3000]
 set output 'tcp_squid.png'
 load "config.gnu"
 set ylabel 'Internal KB/s'
@@ -87,7 +93,7 @@ load "plotting.gnu"
 
 #-----------------------------------------
 #RAM
-set yrange [0:3000]
+set yrange [0:max_ram]
 set output 'ram-s.png'
 load "config.gnu"
 set ylabel 'RAM Usage MB'
@@ -101,7 +107,8 @@ file_city='/NW/NW_ext-bcn-s.top.csv'
 file_town='/NW/NW_ext-Horsens-s.top.csv'
 file_desert='/NW/NW_ext-desierto-s.top.csv'
 
-set yrange [0:3000]
+set yrange [0:max_tcp]
+#set yrange [0:3000]
 set output 'tcp_ext-s.png'
 load "config.gnu"
 set ylabel 'External KB/s'
@@ -115,7 +122,8 @@ file_city='/NW/NW_squid-bcn-s.top.csv'
 file_town='/NW/NW_squid-Horsens-s.top.csv'
 file_desert='/NW/NW_squid-desierto-s.top.csv'
 
-set yrange [0:3000]
+set yrange [0:max_tcp]
+#set yrange [0:3000]
 set output 'tcp_squid-s.png'
 load "config.gnu"
 set ylabel 'Internal KB/s'
