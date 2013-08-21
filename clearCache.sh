@@ -12,8 +12,9 @@ if [ $1 -eq 1 ] ; then
 elif [ $1 -eq 2 ] ; then
 	echo "Clearing Google Earth Cache and restarting it, please wait"
 	#/home/lg/bin/lg-run rm /home/lg/.googleearth/Cache -R
-	lg-run rm $userPath/.googleearth/Cache -R
-	killall googleearth-bin
+	#lg-run rm $userPath/.googleearth/Cache -R
+	#killall googleearth-bin
+	startup-script.sh > /dev/null 2>&1
 else
 	echo "USAGE:$0 [1=Squid; 2=Google Earth]"
 fi
