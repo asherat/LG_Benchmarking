@@ -1,9 +1,9 @@
 #!/usr/bin/env gnuplot
 
-dir='./../Results/Summary/'
-file_city='/HW/HW_bcn.top.csv'
-file_town='/HW/HW_Horsens.top.csv'
-file_desert='/HW/HW_desierto.top.csv'
+dir='./../Summary/'
+file_city='/HW/HW_bcn.csv'
+file_town='/HW/HW_Horsens.csv'
+file_desert='/HW/HW_desierto.csv'
 n = 3 ### n: change this parameter to equal the number of LG-nodes
 max_ram="`cat ram.max`"
 max_tcp="`cat tcp.max`"
@@ -35,9 +35,9 @@ load "plotting.gnu"
 
 #-----------------------------------------
 #External
-file_city='/NW/NW_ext-bcn.top.csv'
-file_town='/NW/NW_ext-Horsens.top.csv'
-file_desert='/NW/NW_ext-desierto.top.csv'
+file_city='/NW/NW_ext-bcn.csv'
+file_town='/NW/NW_ext-Horsens.csv'
+file_desert='/NW/NW_ext-desierto.csv'
 
 set yrange [0:max_tcp]
 #set yrange [0:3000]
@@ -49,9 +49,9 @@ load "plotting.gnu"
 
 #-----------------------------------------
 #Internal
-file_city='/NW/NW_squid-bcn.top.csv'
-file_town='/NW/NW_squid-Horsens.top.csv'
-file_desert='/NW/NW_squid-desierto.top.csv'
+file_city='/NW/NW_squid-bcn.csv'
+file_town='/NW/NW_squid-Horsens.csv'
+file_desert='/NW/NW_squid-desierto.csv'
 
 set yrange [0:max_tcp]
 #set yrange [0:3000]
@@ -63,9 +63,9 @@ load "plotting.gnu"
 
 #-----------------------------------------
 #ViewSync
-file_city='/NW/NW_viewsync-bcn.top.csv'
-file_town='/NW/NW_viewsync-Horsens.top.csv'
-file_desert='/NW/NW_viewsync-desierto.top.csv'
+file_city='/NW/NW_viewsync-bcn.csv'
+file_town='/NW/NW_viewsync-Horsens.csv'
+file_desert='/NW/NW_viewsync-desierto.csv'
 
 set yrange [0:20]
 set output 'viewsync.png'
@@ -80,9 +80,9 @@ load "plotting.gnu"
 jumps=60
 #-----------------------------------------
 #CPU
-file_city='/HW/HW_bcn-s.top.csv'
-file_town='/HW/HW_Horsens-s.top.csv'
-file_desert='/HW/HW_desierto-s.top.csv'
+file_city='/HW/HW_bcn-s.csv'
+file_town='/HW/HW_Horsens-s.csv'
+file_desert='/HW/HW_desierto-s.csv'
 set yrange [0:100]
 set output 'cpu-s.png'
 load "config.gnu"
@@ -103,9 +103,9 @@ load "plotting.gnu"
 
 #-----------------------------------------
 #External
-file_city='/NW/NW_ext-bcn-s.top.csv'
-file_town='/NW/NW_ext-Horsens-s.top.csv'
-file_desert='/NW/NW_ext-desierto-s.top.csv'
+file_city='/NW/NW_ext-bcn-s.csv'
+file_town='/NW/NW_ext-Horsens-s.csv'
+file_desert='/NW/NW_ext-desierto-s.csv'
 
 set yrange [0:max_tcp]
 #set yrange [0:3000]
@@ -117,10 +117,10 @@ load "plotting.gnu"
 
 #-----------------------------------------
 #Internal
-dir='./../Results/Summary/'
-file_city='/NW/NW_squid-bcn-s.top.csv'
-file_town='/NW/NW_squid-Horsens-s.top.csv'
-file_desert='/NW/NW_squid-desierto-s.top.csv'
+dir='./../Summary/'
+file_city='/NW/NW_squid-bcn-s.csv'
+file_town='/NW/NW_squid-Horsens-s.csv'
+file_desert='/NW/NW_squid-desierto-s.csv'
 
 set yrange [0:max_tcp]
 #set yrange [0:3000]
@@ -132,10 +132,10 @@ load "plotting.gnu"
 
 #-----------------------------------------
 #ViewSync
-dir='./../Results/Summary/'
-file_city='/NW/NW_viewsync-bcn-s.top.csv'
-file_town='/NW/NW_viewsync-Horsens-s.top.csv'
-file_desert='/NW/NW_viewsync-desierto-s.top.csv'
+dir='./../Summary/'
+file_city='/NW/NW_viewsync-bcn-s.csv'
+file_town='/NW/NW_viewsync-Horsens-s.csv'
+file_desert='/NW/NW_viewsync-desierto-s.csv'
 
 set yrange [0:20]
 set output 'viewsync-s.png'

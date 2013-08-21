@@ -1,9 +1,9 @@
 #!/bin/bash
 #Does a benchmark using a tour from the queries.txt file with X time between jumps. You can put an additional tag for the output file to differenciate between tours with the same name, for example, to make the same tour with 2 different timings
 
-. ../variables.conf
+THIS_PATH="`dirname \"$0\"`"
+. $THIS_PATH/../variables.conf
 
-#MY_PATH="`dirname \"$0\"`"
 cd $MY_PATH
 
 if [ $# -lt 2 ]  ; then
@@ -29,8 +29,7 @@ cmd_mem='watch -n 1 "'$cmd_mem_tmp' >> '$MemOut' &" > /dev/null 2>&1'
 
 if [ -r $tourScript ] ; then
 
-	rm $rawDir -R
-	mkdir $rawDir
+	$exeLG "mkdir $rawDir"
 
 	$exeLG "pgrep googleearth-bin > /tmp/Earth.tmp"
 	$exeLG 'echo Google Earth running, PID: $(cat /tmp/Earth.tmp)'

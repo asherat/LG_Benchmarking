@@ -1,12 +1,21 @@
 #!/bin/bash
+THIS_PATH="`dirname \"$0\"`"
+. $THIS_PATH/../variables.conf
 
 echo "$(hostname)----START COPYDATA----"
 
-mkdir $summaryDir
-mkdir $summaryDir/$(hostname)
 
-$exeLG scp -r $hw lg1:$summaryDir/$(hostname)/HW
-$exeLG scp -r $net lg1:$summaryDir/$(hostname)/NW
+mkdir $summaryDir
+mkdir $summaryDir/lg1
+mkdir $summaryDir/lg2
+mkdir $summaryDir/lg3
+
+$exeLG 'echo $(hostname) > /tmp/hostname'
+cat_cmd="cat /tmp/hostname"
+
+$exeLG 'mkdir -p '$rawDir'/$(hostname)/HW && mkdir '$rawDir'/$(hostname)/NW && cp -R '$hw'/* '$rawDir'/$(hostname)/HW && cp -R '$net'/* '$rawDir'/$(hostname)/NW; rm /tmp/hostname'
+
+$exeLG "scp -r $rawDir/lg? lg1:$summaryDir"
 
 echo "All data has been copied"
 echo "$(hostname)----END COPYDATA----"

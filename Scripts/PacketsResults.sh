@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Gets Networking Results
 rawFile=$1
 
 echo "$(hostname) |$rawFile|----START PacketResults----"

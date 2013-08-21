@@ -1,11 +1,11 @@
 #!/bin/bash
-path="`dirname \"$0\"`"
-cd $path
+
 total=0
 below=0
-dir='./../Results/Summary'
+dir='./../Summary'
 cat /dev/null > Charts/Summary_UXL
-for filename in $dir/lg?/HW/*.top.csv; do
+for filename in $dir/lg?/HW/*.csv; do
+	#echo $filename #Debug
     below=$(tail -n +4 "$filename" | awk -F "," ' BEGIN {max=0} {if($2<20) {max=max+1};} END {print max}')
 	total=$(cat $filename | tail -n 1 | awk -F "," '{print $1}')
 
