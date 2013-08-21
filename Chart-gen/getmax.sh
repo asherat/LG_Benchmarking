@@ -1,4 +1,6 @@
 #!/bin/bash
+path="`dirname \"$0\"`"
+cd $path
 a=0
 dir='./../Results/Summary'
 for filename in $dir/lg?/HW/HW_*; do

@@ -1,4 +1,6 @@
 #!/bin/bash
+path="`dirname \"$0\"`"
+cd $path
 total=0
 below=0
 dir='./../Results/Summary'

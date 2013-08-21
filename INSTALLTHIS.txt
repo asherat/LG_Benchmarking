@@ -1,1 +1,2 @@
-Needed: sysstat tshark
+Needed: tshark
+libcairo, libpango, libcairo, libwxgtk, gnuplot 4.6 (from www)
