@@ -13,7 +13,10 @@ mkdir $summaryDir/lg3
 $exeLG 'echo $(hostname) > /tmp/hostname'
 cat_cmd="cat /tmp/hostname"
 
-$exeLG 'mkdir -p '$rawDir'/$(hostname)/HW && mkdir '$rawDir'/$(hostname)/NW && cp -R '$hw'/* '$rawDir'/$(hostname)/HW && cp -R '$net'/* '$rawDir'/$(hostname)/NW; rm /tmp/hostname'
+$exeLG 'mkdir -p '$rawDir'/$(hostname)/HW'
+$exeLG 'mkdir '$rawDir'/$(hostname)/NW'
+$exeLG 'cp -R '$hw'/* '$rawDir'/$(hostname)/HW'
+$exeLG 'cp -R '$net'/* '$rawDir'/$(hostname)/NW; rm /tmp/hostname'
 
 $exeLG "scp -r $rawDir/lg? lg1:$summaryDir"
 

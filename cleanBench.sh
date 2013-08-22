@@ -9,10 +9,10 @@ fi
 
 #Summary
 if [ $1 -eq 1 ] ; then
-lg-run-slaves "rm -R $summaryDir"
+rm -R $summaryDir
 #Raws
 elif [ $1 -eq 2 ] ; then
-lg-run-slaves "rm -R $rawDir"
+$exeLG "rm -R $rawDir"
 else
 	echo "USAGE:$0 [1=summary; 2=raws]"
 fi

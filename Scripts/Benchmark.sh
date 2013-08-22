@@ -34,6 +34,11 @@ if [ -r $tourScript ] ; then
 	$exeLG "pgrep googleearth-bin > /tmp/Earth.tmp"
 	$exeLG 'echo Google Earth running, PID: $(cat /tmp/Earth.tmp)'
 
+	#Empty previous records
+	$exeLG "cat /dev/null > $TsharkOut"
+	$exeLG "cat /dev/null > $TopOut"
+	$exeLG "cat /dev/null > $MemOut"
+
 	echo Start monitoring $tourName tour
 	exec $exeLGbg tshark -i eth0 -q -w $TsharkOut &
 	exec $exeLGbg $cmd_cpu &
