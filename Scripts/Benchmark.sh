@@ -3,7 +3,6 @@
 
 THIS_PATH="`dirname \"$0\"`"
 . $THIS_PATH/../variables.conf
-
 cd $MY_PATH
 
 if [ $# -lt 2 ]  ; then
@@ -48,10 +47,9 @@ if [ -r $tourScript ] ; then
 	$tourScript $tourName $time
 
 	echo Done monitoring $tourName tour
-	exec $exeLGsudo killall top tshark watch
-	
+	$exeLG killall top tshark watch
 	$exeLG rm /tmp/Earth.tmp
-	$exeLG echo Deleted temp
+	#$exeLG echo Deleted temp
 else
 	echo "$tourScript doesn't exist"
 fi

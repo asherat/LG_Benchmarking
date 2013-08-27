@@ -10,7 +10,7 @@ files=$rawDir/*.top
 shopt -s nullglob
 for file in $rawDir/*.top; do
   _file=$(basename ${file##*/} .top)
-  $exeLGbg $scriptsDir/AutoResults.sh $_file 
+  $exeLGbg $scriptsDir/AutoResults.sh $_file
 done
 
 echo "$(hostname)----END ANALIZE----"

@@ -21,10 +21,10 @@ fi
 
 ResultDir="$rawDir/Result_$rawFile"
 mkdir $ResultDir
-echo "Created dir $ResultDir"
+#echo "Created dir $ResultDir"
 . $scriptsDir/GetResults.sh $rawFile
 . $scriptsDir/ParseResults.sh $rawFile
 . $scriptsDir/PacketsResults.sh $rawFile
-rm $ResultDir -R
+#rm $ResultDir -R
 
 echo "$(hostname) |$rawFile|----END AutoResults----"

@@ -12,7 +12,7 @@ inFile="$rawDir/$rawFile.pcap"
 outDir=$rawDir/"Result_$rawFile"
 
 tempDir="$rawDir/TShark_$rawFile"
-echo "Creating '$tempDir' directory"
+#echo "Creating '$tempDir' directory"
 mkdir $tempDir
 
 echo "Chopping '$inFile' file"
@@ -40,6 +40,6 @@ capinfos -xyzm $tempDir/viewsync.pcap | tail -n +2 >> $net/NW-Summary_viewsync-$
 echo "Generated capinfos reports"
 
 rm $tempDir -R
-echo "Temp directory '$tempDir' deleted"
+#echo "Temp directory '$tempDir' deleted"
 
 echo "$(hostname) |$rawFile|----END PacketResults----"
