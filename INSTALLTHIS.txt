@@ -1,2 +1,11 @@
-Needed: tshark
-libcairo, libpango, libcairo, libwxgtk, gnuplot 4.6 (from www)
+All nodes: tshark
+sudo -s
+groupadd wireshark
+usermod -a -G wireshark lg
+newgrp wireshark
+chgrp wireshark /usr/bin/dumpcap
+chmod 750 /usr/bin/dumpcap
+setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
+
+
+Master Only: libcairo, libpango, libcairo, libwxgtk, gnuplot 4.6 (from www)

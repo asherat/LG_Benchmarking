@@ -1,3 +1,3 @@
 #!/bin/bash
 
-$exeLG killall top tshark watch
+lg-run killall top tshark watch
