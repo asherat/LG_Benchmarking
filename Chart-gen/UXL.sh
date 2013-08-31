@@ -1,4 +1,5 @@
 #!/bin/bash
+#User eXperience Level script
 
 total=0
 below=0

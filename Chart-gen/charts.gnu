@@ -1,9 +1,6 @@
 #!/usr/bin/env gnuplot
-
-dir='./../Summary/'
-file_city='/HW/HW_bcn.csv'
-file_town='/HW/HW_Horsens.csv'
-file_desert='/HW/HW_desierto.csv'
+#Plotting of the Charts in a modular way
+#Check the other files to know deeply what this script does
 
 max_ram="`cat ram.max`"
 max_tcp="`cat tcp.max`"
@@ -14,6 +11,11 @@ max_tcp="`cat tcp.max`"
 jumps=30
 #-----------------------------------------
 #CPU
+dir='./../Summary/'
+file_city='/HW/HW_bcn.csv'
+file_town='/HW/HW_Horsens.csv'
+file_desert='/HW/HW_desierto.csv'
+
 set yrange [0:100]
 set output 'cpu.png'
 load "config.gnu"
@@ -24,6 +26,10 @@ load "plotting.gnu"
 
 #-----------------------------------------
 #RAM
+dir='./../Summary/'
+file_city='/HW/HW_bcn.csv'
+file_town='/HW/HW_Horsens.csv'
+file_desert='/HW/HW_desierto.csv'
 
 set yrange [0:max_ram]
 set output 'ram.png'
@@ -84,6 +90,7 @@ file_city='/HW/HW_bcn-s.csv'
 file_town='/HW/HW_Horsens-s.csv'
 file_desert='/HW/HW_desierto-s.csv'
 set yrange [0:100]
+
 set output 'cpu-s.png'
 load "config.gnu"
 set ylabel 'CPU Usage %'
@@ -93,6 +100,10 @@ load "plotting.gnu"
 
 #-----------------------------------------
 #RAM
+file_city='/HW/HW_bcn-s.csv'
+file_town='/HW/HW_Horsens-s.csv'
+file_desert='/HW/HW_desierto-s.csv'
+
 set yrange [0:max_ram]
 set output 'ram-s.png'
 load "config.gnu"
@@ -143,5 +154,3 @@ load "config.gnu"
 set ylabel 'ViewSync/s'
 gragh_type="ram_tcp"
 load "plotting.gnu"
-
-

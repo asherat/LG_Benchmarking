@@ -1,6 +1,5 @@
-
+#Main plotting of the modular files
 if(n==1){
-	lg_node='lg1'
 	load "single.gnu"
 	load gragh_type.".gnu"
 }else{

@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Restarts the Google Earth and clears its cache. It waits for the Google Earth in all nodes to be running after the restart
 if [ -r ${HOME}/etc/shell.conf ]  ; then
 	source ${HOME}/etc/shell.conf
 
@@ -16,12 +16,13 @@ lg-ctl-master
 THIS_PATH="`dirname \"$0\"`"
 source $THIS_PATH/../variables.conf
 
-echo "Restarting Google Earth"
+echo "Clearing Google Earth cache"
 $exeLG rm $userPath/.googleearth/Cache -R
+echo "Restarting Google Earth"
 startup-script.sh > /dev/null 2>&1
-sleep 2 #killing a process takes a second and catches the old GE's PID
 
 echo "Waiting for Google Earth start in all nodes"
+sleep 2 # Killing a process takes a second and gets the old GE's PID. Just wait a bit to get the new PID
 for (( i=1; i<=$LG_FRAMES_MAX; i++ )); do
 	lg=lg$i
 	ready="no"

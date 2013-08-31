@@ -1,4 +1,4 @@
-### Last (key) plot
+### Key plot
 set tmargin at screen bot(n,n,h,t,30)
 set bmargin at screen 0
 set key horizontal center center

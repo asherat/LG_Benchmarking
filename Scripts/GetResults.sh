@@ -1,4 +1,5 @@
 #!/bin/bash
+# Gets the Hardware data from the raw files
 
 rawFile=$1
 

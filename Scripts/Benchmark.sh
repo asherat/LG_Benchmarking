@@ -30,6 +30,7 @@ if [ -r $tourScript ] ; then
 
 	$exeLG "mkdir $rawDir"
 
+	#Get Google Earth PID
 	$exeLG "pgrep googleearth-bin > /tmp/Earth.tmp"
 	$exeLG 'echo Google Earth running, PID: $(cat /tmp/Earth.tmp)'
 

@@ -1,18 +1,22 @@
 #!/bin/bash
-. variables.conf
-#This script cleans all results from the nodes.
-#It can clean the Raw files obtained at monitoring and the Result files obtained at analizing
+#This script cleans all results of the benchmark from all nodes.
+#It can clean the Raw files obtained at monitoring and the Summary files obtained at analizing
+
+MY_PATH="`dirname \"$0\"`"
+. $MY_PATH/variables.conf
+usage="USAGE:$0 [1=raws; 2=summary]"
+
 if [ $# -ne 1 ]  ; then
-	echo "USAGE:$0 [1=summary; 2=raws]"
+	echo $usage
 	exit 2
 fi
 
-#Summary
-if [ $1 -eq 1 ] ; then
-rm -R $summaryDir
 #Raws
+if [ $1 -eq 1 ] ; then
+	$exeLG "rm -R $rawDir"
+#Summary
 elif [ $1 -eq 2 ] ; then
-$exeLG "rm -R $rawDir"
+	rm -R $summaryDir
 else
-	echo "USAGE:$0 [1=summary; 2=raws]"
+	echo $usage
 fi

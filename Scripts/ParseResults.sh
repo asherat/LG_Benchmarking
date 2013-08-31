@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Formats the files from the Hardware data and merges it into a readable csv file
 rawFile=$1
 
 echo "$(hostname) |$rawFile|----START ParseResults----"
