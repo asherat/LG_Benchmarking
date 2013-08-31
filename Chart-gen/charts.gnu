@@ -4,7 +4,7 @@ dir='./../Summary/'
 file_city='/HW/HW_bcn.csv'
 file_town='/HW/HW_Horsens.csv'
 file_desert='/HW/HW_desierto.csv'
-n = 3 ### n: change this parameter to equal the number of LG-nodes
+
 max_ram="`cat ram.max`"
 max_tcp="`cat tcp.max`"
 #-----------------------------------------------------------------------------------

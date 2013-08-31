@@ -1,7 +1,9 @@
+# n: change this parameter to equal the number of LG-nodes
+n =  1
 # t: top margin in pixels
 t = 35.0
 # b: key height in pixels (bottom margin)
-b = 170.0
+b = 120.0
 # h: height of output in pixels
 h = 150.0*n + t + b
 
