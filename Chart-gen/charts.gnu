@@ -74,7 +74,7 @@ file_town='/NW/NW_viewsync-Horsens.csv'
 file_desert='/NW/NW_viewsync-desierto.csv'
 
 set yrange [0:20]
-set output 'viewsync.png'
+set output 'tcp_viewsync.png'
 load "config.gnu"
 set ylabel 'ViewSync/s'
 gragh_type="ram_tcp"
@@ -149,7 +149,7 @@ file_town='/NW/NW_viewsync-Horsens-s.csv'
 file_desert='/NW/NW_viewsync-desierto-s.csv'
 
 set yrange [0:20]
-set output 'viewsync-s.png'
+set output 'tcp_viewsync-s.png'
 load "config.gnu"
 set ylabel 'ViewSync/s'
 gragh_type="ram_tcp"
