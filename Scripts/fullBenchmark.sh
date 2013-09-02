@@ -18,7 +18,7 @@ done < tours.txt
 
 echo "----Starting full benchmark----"
 for tour in  "${LIST[@]}"; do
-	bash clearCache.sh 3	# Clears the cache
+	bash clearCache.sh 2	# Clears the cache
 	bash Benchmark.sh $tour	# Runs the Tour
 done
 echo "----Finished full benchmark----"

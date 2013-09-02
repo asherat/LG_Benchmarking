@@ -14,9 +14,6 @@ tourName=$1
 time=$2
 tag=$3
 
-filepath=~/Benchmarking/Scripts/Tour.sh
-OutputPath=~/Benchmarking/Results
-
 TsharkOut=$rawDir/$tourName$tag.pcap
 TopOut=$rawDir/$tourName$tag.top
 MemOut=$rawDir/$tourName$tag.mem

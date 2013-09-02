@@ -4,7 +4,7 @@
 
 MY_PATH="`dirname \"$0\"`"
 . $MY_PATH/variables.conf
-usage="USAGE:$0 [1=raws; 2=summary]"
+usage="USAGE:$0 [1=raws; 2=summary; 3=charts]"
 
 if [ $# -ne 1 ]  ; then
 	echo $usage
@@ -17,6 +17,9 @@ if [ $1 -eq 1 ] ; then
 #Summary
 elif [ $1 -eq 2 ] ; then
 	rm -R $summaryDir
+#Charts
+elif [ $1 -eq 3 ] ; then
+	rm -R $chartsDir/Charts
 else
 	echo $usage
 fi

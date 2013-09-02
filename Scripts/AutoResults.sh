@@ -25,7 +25,7 @@ elif [ ! -f "$rawDir/$rawFile.pcap" ]; then
 fi
 
 tmpDir="$rawDir/Result_$rawFile"
-mkdir $ResultDir
+mkdir $tmpDir
 . $scriptsDir/GetResults.sh $rawFile
 . $scriptsDir/ParseResults.sh $rawFile
 . $scriptsDir/PacketsResults.sh $rawFile
