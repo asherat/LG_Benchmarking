@@ -10,6 +10,7 @@ if [ $# -lt 2 ]  ; then
 	exit 2
 fi
 
+
 tourName=$1
 time=$2
 tag=$3
@@ -35,17 +36,20 @@ if [ -r $tourScript ] ; then
 	$exeLG "cat /dev/null > $TsharkOut"
 	$exeLG "cat /dev/null > $TopOut"
 	$exeLG "cat /dev/null > $MemOut"
-
+	
 	echo Start monitoring $tourName tour
 	exec $exeLGbg tshark -i eth0 -q -w $TsharkOut &
 	exec $exeLGbg $cmd_cpu &
-	exec $exeLGbgtt $cmd_mem &
+
+	exec $exeLGbg getRam.sh &	
+#	exec $exeLGbgtt $cmd_mem &
 
 	echo Starting $tourName tour
 	$tourScript $tourName $time
 
 	echo Done monitoring $tourName tour
-	$exeLG killall top tshark watch
+	$exeLG killall top tshark getRam.sh
+	#$exeLG killall top tshark watch
 	$exeLG rm /tmp/Earth.tmp
 	#$exeLG echo Deleted temp
 else

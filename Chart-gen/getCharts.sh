@@ -12,3 +12,5 @@ gnuplot charts.gnu # Generate graphs
 
 mv *.png Charts
 rm *.max
+
+sudo cp Charts/* /var/www/benchmarking/img
