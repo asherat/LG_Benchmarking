@@ -7,6 +7,3 @@ $exeLGslaves "mkdir $scriptsDir -p; scp lg1:$benchDir/variables.conf $benchDir; 
 
 chmod +x $scriptsDir/*.sh
 chmod +x $toolsDir/*.sh
-
-
-

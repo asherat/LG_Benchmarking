@@ -41,7 +41,7 @@ if [ -r $tourScript ] ; then
 	exec $exeLGbg tshark -i eth0 -q -w $TsharkOut &
 	exec $exeLGbg $cmd_cpu &
 
-	exec $exeLGbg getRam.sh &	
+	exec $exeLGbg $scriptsDir/getRam.sh $MemOut &	
 #	exec $exeLGbgtt $cmd_mem &
 
 	echo Starting $tourName tour

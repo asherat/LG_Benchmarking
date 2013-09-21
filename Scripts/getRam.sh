@@ -12,9 +12,7 @@ fi
 output=$1
 
 earth=`cat /tmp/Earth.tmp`
-cmd_mem_tmp="cat /proc/$earth/status | grep VmRSS"
-echo $cmd_mem_tmp
 while [ true ]; do
-	"$cmd_mem_tmp > $output"
+	cat /proc/$earth/status | grep VmRSS >> $output
 	sleep 1;
 done
