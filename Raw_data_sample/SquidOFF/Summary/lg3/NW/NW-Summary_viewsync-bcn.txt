@@ -1,0 +1,4 @@
+VIEWSYNC
+Data byte rate:      6608.73 bytes/sec
+Average packet size: 173.10 bytes
+Average packet rate: 38.18 packets/sec
