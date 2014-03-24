@@ -1,4 +1,0 @@
-SQUID
-Data byte rate:      36048.94 bytes/sec
-Average packet size: 577.65 bytes
-Average packet rate: 62.41 packets/sec

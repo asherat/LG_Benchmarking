@@ -1,4 +1,0 @@
-EXTERNAL
-Data byte rate:      40056.76 bytes/sec
-Average packet size: 820.28 bytes
-Average packet rate: 48.83 packets/sec
