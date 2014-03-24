@@ -5,7 +5,7 @@ THIS_PATH="`dirname \"$0\"`"
 . $THIS_PATH/../variables.conf
 cd $MY_PATH
 
-if [ $# -lt 2 ]  ; then
+if [ $# -ne 2 ]  ; then
 	echo "USAGE:$0 [Tag/TourName] [time] [Additional Tag]"
 	exit 2
 fi
@@ -40,18 +40,14 @@ if [ -r $tourScript ] ; then
 	echo Start monitoring $tourName tour
 	exec $exeLGbg tshark -i eth0 -q -w $TsharkOut &
 	exec $exeLGbg $cmd_cpu &
-
 	exec $exeLGbg $scriptsDir/getRam.sh $MemOut &	
-#	exec $exeLGbgtt $cmd_mem &
 
 	echo Starting $tourName tour
 	$tourScript $tourName $time
 
 	echo Done monitoring $tourName tour
 	$exeLG killall top tshark getRam.sh
-	#$exeLG killall top tshark watch
 	$exeLG rm /tmp/Earth.tmp
-	#$exeLG echo Deleted temp
 else
 	echo "$tourScript doesn't exist"
 fi

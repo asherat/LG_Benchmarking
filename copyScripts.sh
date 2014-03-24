@@ -1,5 +1,5 @@
 #!/bin/bash
-#Allows to copy all scripts to other nodes
+#Allows to copy all scripts to other nodes in order to perform the benchmarking tasks
 MY_PATH="`dirname \"$0\"`"
 . $MY_PATH/variables.conf
 
