@@ -22,7 +22,7 @@ MemOut=$rawDir/$tourName$tag.mem
 cmd_cpu='top -b -d 1 -p $(cat /tmp/Earth.tmp) > '$TopOut' &'
 cmd_mem_tmp='cat /proc/$(cat /tmp/Earth.tmp)/status | grep VmRSS'
 cat /dev/null > $MemOut
-cmd_mem='watch -n 1 "'$cmd_mem_tmp' >> '$MemOut' &" > /dev/null 2>&1'
+#cmd_mem='watch -n 1 "'$cmd_mem_tmp' >> '$MemOut' &" > /dev/null 2>&1'
 
 if [ -r $tourScript ] ; then
 

@@ -6,9 +6,6 @@ THIS_PATH="`dirname \"$0\"`"
 
 echo "$(hostname)----START COPYDATA----"
 
-$exeLG 'echo $(hostname) > /tmp/hostname'
-cat_cmd="cat /tmp/hostname"
-
 #Create dirs
 for ((aux_var=1; aux_var<=$numLGs; aux_var++ ))
 do
@@ -17,14 +14,12 @@ done
 
 #Gather all the data in the same dir in every node
 $exeLG 'mkdir -p '$rawDir'/$(hostname)/HW'
-$exeLG 'mkdir '$rawDir'/$(hostname)/NW'
+$exeLG 'mkdir -p '$rawDir'/$(hostname)/NW'
 $exeLG 'cp -R '$hw'/* '$rawDir'/$(hostname)/HW'
-$exeLG 'cp -R '$net'/* '$rawDir'/$(hostname)/NW; rm /tmp/hostname'
+$exeLG 'cp -R '$net'/* '$rawDir'/$(hostname)/NW'
 
 #Copy the data of all nodes into lg1
 $exeLG "scp -r $rawDir/lg? lg1:$summaryDir"
-
-$exeLG 'rm /tmp/hostname'
 
 echo "All data has been copied"
 echo "$(hostname)----END COPYDATA----"
