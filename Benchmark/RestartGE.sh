@@ -11,15 +11,18 @@ fi
 [ -z "${LG_FRAMES}" ] && echo "LG_FRAMES is empty" && exit 1
 [ -z "${LG_FRAMES_MAX}" ] && echo "LG_FRAMES_MAX is empty" && exit 1
 
+
 lg-ctl-master
 
 THIS_PATH="`dirname \"$0\"`"
 source $THIS_PATH/../variables.conf
 
+time_sleep=7
+
 echo "Clearing Google Earth cache"
 $exeLG rm $userPath/.googleearth/Cache -R
 echo "Restarting Google Earth"
-startup-script.sh > /dev/null 2>&1
+$LGScriptsDir/startup-script.sh > /dev/null 2>&1
 
 echo "Waiting for Google Earth start in all nodes"
 sleep 2 # Killing a process takes a second and gets the old GE's PID. Just wait a bit to get the new PID
@@ -39,7 +42,7 @@ done
 echo "Done Restarting Google Earth"
 
 echo "Sleeping "$time_sleep"s until Google Earth stops moving"
-time_sleep=7
+
 sleep $time_sleep
 echo "Awake"
 

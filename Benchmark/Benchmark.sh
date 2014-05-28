@@ -22,7 +22,6 @@ MemOut=$rawDir/$tourName$tag.mem
 cmd_cpu='top -b -d 1 -p $(cat /tmp/Earth.tmp) > '$TopOut' &'
 cmd_mem_tmp='cat /proc/$(cat /tmp/Earth.tmp)/status | grep VmRSS'
 cat /dev/null > $MemOut
-#cmd_mem='watch -n 1 "'$cmd_mem_tmp' >> '$MemOut' &" > /dev/null 2>&1'
 
 if [ -r $tourScript ] ; then
 
@@ -42,16 +41,13 @@ if [ -r $tourScript ] ; then
 	exec $exeLGbg $cmd_cpu &
 
 	exec $exeLGbg $scriptsDir/getRam.sh $MemOut &	
-#	exec $exeLGbgtt $cmd_mem &
 
 	echo Starting $tourName tour
 	$tourScript $tourName $time
 
 	echo Done monitoring $tourName tour
 	$exeLG killall top tshark getRam.sh
-	#$exeLG killall top tshark watch
 	$exeLG rm /tmp/Earth.tmp
-	#$exeLG echo Deleted temp
 else
 	echo "$tourScript doesn't exist"
 fi

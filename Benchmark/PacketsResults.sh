@@ -12,12 +12,16 @@ inFile="$rawDir/$rawFile.pcap"
 outDir=$rawDir/"Result_$rawFile"
 
 tempDir="$rawDir/TShark_$rawFile"
-#echo "Creating '$tempDir' directory"
+
 mkdir $tempDir
 
+#TODO: Need URGENT change to include more LG's
+#Possible Workaround: Iterate through all LG's and get the IP's from /etc/hosts file
+aux="ip.addr==10.42.42.1 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.3) || ip.addr==10.42.42.2 && (ip.addr==10.42.42.1 || ip.addr==10.42.42.3) || ip.addr==10.42.42.3 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.1)"
+
 echo "Chopping '$inFile' file"
-tshark -r $inFile -R "!udp && !(ip.addr==10.42.42.1 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.3) || ip.addr==10.42.42.2 && (ip.addr==10.42.42.1 || ip.addr==10.42.42.3) || ip.addr==10.42.42.3 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.1))" -w $tempDir/external.pcap 
-tshark -r $inFile -R "ip.addr==10.42.42.1 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.3) || ip.addr==10.42.42.2 && (ip.addr==10.42.42.1 || ip.addr==10.42.42.3) || ip.addr==10.42.42.3 && (ip.addr==10.42.42.2 || ip.addr==10.42.42.1)" -w $tempDir/squid.pcap 
+tshark -r $inFile -R "!udp && !($aux)" -w $tempDir/external.pcap 
+tshark -r $inFile -R "$aux" -w $tempDir/squid.pcap 
 tshark -r $inFile -R "ip.dst==10.42.42.255" -w $tempDir/viewsync.pcap 
 echo "Done Chopping '$inFile' file"
 
@@ -40,6 +44,5 @@ capinfos -xyzm $tempDir/viewsync.pcap | tail -n +2 >> $net/NW-Summary_viewsync-$
 echo "Generated capinfos reports"
 
 rm $tempDir -R
-#echo "Temp directory '$tempDir' deleted"
 
 echo "$(hostname) |$rawFile|----END PacketResults----"

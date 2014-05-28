@@ -1,6 +1,8 @@
 #!/bin/bash
 #Sometimes, when monitoring, at the end of the benchmark, the last rows are ahead of the stop time.
 #This script deletes those unnecesary rows
+path="`dirname \"$0\"`"
+cd $path
 
 dir=`basename $1`
 
