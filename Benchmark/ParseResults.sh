@@ -16,9 +16,7 @@ if [ ! -d "$inDir" ]; then
     echo "Dir '$inDir' doesn't exist"
 else
 	tempDir="$rawDir/CSV_$rawFile"
-	#echo "Creating '$tempDir' temp directory"
 	mkdir $tempDir
-	#echo "Copying all CSV into temp directory"
 	cp $inDir/*.csv $tempDir/
 
 	echo "Mending all csv files"
@@ -29,7 +27,6 @@ else
 	echo "Generated '$outFile'"
 	
 	rm $tempDir -R
-	#echo "Deleted '$tempDir' temp directory"
 
 fi
 echo "$(hostname) |$rawFile|----END ParseResults----"

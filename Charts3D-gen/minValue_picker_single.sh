@@ -5,21 +5,25 @@
 #The recommendation is to pick a value which doesn't have many repetitions after the most repeated values (global minimum)
 
 path="`dirname \"$0\"`"
-cd $path/..
-usage="$0 [dir] lg[X] [bcn,desierto,Horsens]-[timing] OPTIONAL:[rows]" 
+cd $path
+usage="$0 [file] OPTIONAL:[rowsToDisplay]" 
 
-if [ $# -ne 4 ]  ; then
+if [ $# -lt 1 ]  ; then
 	echo $usage
 	exit 2
 fi
 
-dir=$1
-lg=$2
-env=$3
-h=$4
+file=$1
+h=$2
 
 if [[ $3 -lt 1 ]];then
 	h=15
 fi
 
-cat $dir/Summary/lg$lg/HW/HW_$env.csv | tail -n +4 | awk -F ',' '{print $2}' | awk '{a[$0]++}END{for(x in a)print x,a[x]}' | sort -g | head -$h
+min=$(cat $file | tail -n +4 | awk -F ',' '{print $2}' | awk '{a[$0]++}END{for(x in a)print x,a[x]}' | sort -g | head -$h | awk 'NR==1 || $2 > 10{line=$1} END{print line+1}')
+if [[ $min -gt 80 ]]; then
+	min=80
+fi
+echo $min
+
+

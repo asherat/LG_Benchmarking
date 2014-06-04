@@ -3,7 +3,7 @@
 #It can clean the Raw files obtained at monitoring and the Summary files obtained at analizing
 
 MY_PATH="`dirname \"$0\"`"
-. $MY_PATH/variables.conf
+. $MY_PATH/Config/variables.conf
 usage="USAGE:$0 [1=raws; 2=summary; 3=charts]"
 
 if [ $# -ne 1 ]  ; then

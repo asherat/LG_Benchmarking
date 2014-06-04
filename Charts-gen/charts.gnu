@@ -4,6 +4,8 @@ dir="../Data/`cat current_dir.txt`/Summary/"
 max_ram="`cat ram.max`"
 max_tcp="`cat tcp.max`"
 
+jumps=tag
+
 #Filenames
 hw='/HW/HW_'
 external='/NW/NW_ext-'
@@ -15,10 +17,10 @@ filename2=filename2.'-'.tag
 filename3=filename3.'-'.tag
 
 
-#-----------------------------------------------------------------------------------
+#------------------------------------------------------
 #-----------------------Start--------------------------
-#-----------------------------------------------------------------------------------
-#-----------------------------------------
+#------------------------------------------------------
+
 #CPU
 file_city=hw.filename1.'.csv'
 file_town=hw.filename2.'.csv'
@@ -61,7 +63,6 @@ load "plotting.gnu"
 file_city=internal.filename1.'.csv'
 file_town=internal.filename2.'.csv'
 file_desert=internal.filename3.'.csv'
-
 
 set yrange [0:max_tcp]
 #set yrange [0:3000]
