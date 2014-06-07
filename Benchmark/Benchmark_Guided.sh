@@ -4,7 +4,7 @@
 
 THIS_PATH="`dirname \"$0\"`"
 cd $THIS_PATH
-. $THIS_PATH/../variables.conf
+. $THIS_PATH/../Config/variables.conf
 
 function startTest {
 	tourName=$1
@@ -37,19 +37,34 @@ function stopTest {
 	echo Done monitoring $tourName tour
 	./stopAll.sh
 }
+function initTime {
+TimeOut=$rawDir/$tourName-free.time
+date1=$(date +'%s')
+lastPoi="Start"
+}
 
+function getTime {
+	date2=$(date +'%s')
+	diff=$(($date2-$date1))
+	echo "$(($diff)) seconds from $lastPoi to $poi." >> times.txt
 
+	date1=$date2
+	lastPoi=$poi
+}
+cat /dev/null > times.txt
 point=1
 echo "Type tourname from [bcn, Yosemite, Alps, desierto, Venice, Horsens]"
 read tourname
-
-startTest $tourname
+initTime
+#startTest $tourname
 for i in `seq 1 8`
 do
 	query=$(cat queries.txt | grep $tourname | awk -F "@" -v point=$i 'NR==point{print $3}')
 	echo $query > /tmp/query.txt
 	poi=$(cat queries.txt | grep $tourname | awk -F "@" -v point=$i 'NR==point{print $2}')
 	read -p "$i: You are in $poi"
+	getTime
+
 done
-stopTest
+#stopTest
 
