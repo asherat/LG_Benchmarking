@@ -58,7 +58,8 @@ echo "Type tourname from [bcn, Yosemite, Alps, desierto, Venice, Horsens]"
 read tourName
 initTime
 startTest $tourName
-for i in `seq 1 8`
+numPoints=$(cat queries.txt | grep $tourName | wc -l)
+for i in `seq 1 $numPoints`
 do
 	query=$(cat queries.txt | grep $tourName | awk -F "@" -v point=$i 'NR==point{print $3}')
 	echo $query > /tmp/query.txt
