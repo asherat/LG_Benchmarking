@@ -2,7 +2,7 @@
 #Copies all the data from the Analize part into the Summary directory
 
 THIS_PATH="`dirname \"$0\"`"
-. $THIS_PATH/../variables.conf
+. $THIS_PATH/../Config/variables.conf
 
 echo "$(hostname)----START COPYDATA----"
 

@@ -2,7 +2,7 @@
 #Get readable csv from the raw data file ($rawFile) of the benchmark tour
 
 path="`dirname \"$0\"`"
-. $path/../variables.conf
+. $path/../Config/variables.conf
 
 rawFile=$1
 
@@ -26,9 +26,9 @@ fi
 
 tmpDir="$rawDir/Result_$rawFile"
 mkdir $tmpDir
-. $scriptsDir/GetResults.sh $rawFile
-. $scriptsDir/ParseResults.sh $rawFile
-. $scriptsDir/PacketsResults.sh $rawFile
+. $benchmarkDir/GetResults.sh $rawFile
+. $benchmarkDir/ParseResults.sh $rawFile
+. $benchmarkDir/PacketsResults.sh $rawFile
 rm $tmpDir -R
 
 echo "$(hostname) |$rawFile|----END AutoResults----"

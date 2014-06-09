@@ -1,7 +1,7 @@
 #!/bin/bash
 
 THIS_PATH="`dirname \"$0\"`"
-. $THIS_PATH/../variables.conf
+. $THIS_PATH/../Config/variables.conf
 cd $MY_PATH
 
 if [ $# -lt 1 ]  ; then

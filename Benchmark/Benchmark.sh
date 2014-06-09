@@ -2,7 +2,7 @@
 #Does a benchmark using a tour from the queries.txt file with X time between jumps. You can put an additional tag for the output file to differenciate between tours with the same name, for example, to make the same tour with 2 different timings
 
 THIS_PATH="`dirname \"$0\"`"
-. $THIS_PATH/../variables.conf
+. $THIS_PATH/../Config/variables.conf
 cd $MY_PATH
 
 if [ $# -lt 2 ]  ; then
@@ -40,7 +40,7 @@ if [ -r $tourScript ] ; then
 	exec $exeLGbg tshark -i eth0 -q -w $TsharkOut &
 	exec $exeLGbg $cmd_cpu &
 
-	exec $exeLGbg $scriptsDir/getRam.sh $MemOut &	
+	exec $exeLGbg $benchmarkDir/getRam.sh $MemOut &	
 
 	echo Starting $tourName tour
 	$tourScript $tourName $time

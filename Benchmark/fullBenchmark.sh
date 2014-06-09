@@ -1,7 +1,7 @@
 #!/bin/bash
 #Automatizes the process of running all the tours in the file "tours.txt" and clearing cache between tours. When this script finishes, a sound is played
 #Tours.txt should be as follows "tourname seconds_between_jumps additional_tag"
-#Where 'tourname' is the first name before '@' of an entry in Scripts/queries.txt
+#Where 'tourname' is the first name before '@' of an entry in Benchmark/queries.txt
 #Additional_tag is a tag to differenciate between tours of the same name, like those with same name and different time between jumps in seconds
 
 THIS_PATH="`dirname \"$0\"`"

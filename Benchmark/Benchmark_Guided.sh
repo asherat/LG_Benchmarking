@@ -7,20 +7,9 @@ cd $THIS_PATH
 . $THIS_PATH/../Config/variables.conf
 
 function startTest {
-	tourName=$1
 	
-	$exeLG "mkdir $rawDir"
-
-	TsharkOut=$rawDir/$tourName-free.pcap
-	TopOut=$rawDir/$tourName-free.top
-	MemOut=$rawDir/$tourName-free.mem
-
-	cmd_cpu='top -b -d 1 -p $(cat /tmp/Earth.tmp) > '$TopOut' &'
-	cmd_mem_tmp='cat /proc/$(cat /tmp/Earth.tmp)/status | grep VmRSS'
-
 	#Get Google Earth PID
 	$exeLG "pgrep googleearth-bin > /tmp/Earth.tmp"
-	#$exeLG 'echo Google Earth running, PID: $(cat /tmp/Earth.tmp)'
 
 	#Empty previous records
 	$exeLG "cat /dev/null > $TsharkOut"
@@ -30,7 +19,7 @@ function startTest {
 	echo Start monitoring $tourName tour
 	exec $exeLGbg tshark -i eth0 -q -w $TsharkOut &
 	exec $exeLGbg $cmd_cpu &
-	exec $exeLGbg $scriptsDir/getRam.sh $MemOut &	
+	exec $exeLGbg $benchmarkDir/getRam.sh $MemOut &	
 }
 
 function stopTest {
@@ -38,33 +27,45 @@ function stopTest {
 	./stopAll.sh
 }
 function initTime {
-TimeOut=$rawDir/$tourName-free.time
-date1=$(date +'%s')
-lastPoi="Start"
+
+	$exeLG "mkdir $rawDir"
+
+	TsharkOut=$rawDir/$tourName-free.pcap
+	TopOut=$rawDir/$tourName-free.top
+	MemOut=$rawDir/$tourName-free.mem
+
+	cmd_cpu='top -b -d 1 -p $(cat /tmp/Earth.tmp) > '$TopOut' &'
+	cmd_mem_tmp='cat /proc/$(cat /tmp/Earth.tmp)/status | grep VmRSS'
+
+
+	TimeOut=$rawDir/$tourName-free.time
+	cat /dev/null > $TimeOut
+	date1=$(date +'%s')
+	lastPoi="Start"
 }
 
 function getTime {
 	date2=$(date +'%s')
 	diff=$(($date2-$date1))
-	echo "$(($diff)) seconds from $lastPoi to $poi." >> times.txt
+	echo "$(($diff)) seconds from $lastPoi to $poi." >> $TimeOut
 
 	date1=$date2
 	lastPoi=$poi
 }
-cat /dev/null > times.txt
+
 point=1
 echo "Type tourname from [bcn, Yosemite, Alps, desierto, Venice, Horsens]"
-read tourname
+read tourName
 initTime
-#startTest $tourname
+startTest $tourName
 for i in `seq 1 8`
 do
-	query=$(cat queries.txt | grep $tourname | awk -F "@" -v point=$i 'NR==point{print $3}')
+	query=$(cat queries.txt | grep $tourName | awk -F "@" -v point=$i 'NR==point{print $3}')
 	echo $query > /tmp/query.txt
-	poi=$(cat queries.txt | grep $tourname | awk -F "@" -v point=$i 'NR==point{print $2}')
+	poi=$(cat queries.txt | grep $tourName | awk -F "@" -v point=$i 'NR==point{print $2}')
 	read -p "$i: You are in $poi"
 	getTime
 
 done
-#stopTest
+stopTest
 

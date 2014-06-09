@@ -2,7 +2,7 @@
 #Does a free benchmark. You can put an additional tag for the output file to differenciate between tours with the same name, for example, to make the same tour with 2 different timings
 
 THIS_PATH="`dirname \"$0\"`"
-. $THIS_PATH/../variables.conf
+. $THIS_PATH/../Config/variables.conf
 cd $MY_PATH
 
 if [ $# -ne 1 ]  ; then
@@ -34,11 +34,11 @@ $exeLG "cat /dev/null > $MemOut"
 echo "Starting Free Mode Benchmark"
 exec $exeLGbg tshark -i eth0 -q -w $TsharkOut & #Net
 exec $exeLGbg $cmd_cpu &			#CPU
-exec $exeLGbg $scriptsDir/getRam.sh $MemOut &	#RAM
+exec $exeLGbg $benchmarkDir/getRam.sh $MemOut &	#RAM
 
 echo "Press any key to Stop..."
 read -p "$*"
 
 echo "Free Mode Benchmark Stopped"
-exec $scriptsDir/stopAll.sh
+exec $benchmarkDir/stopAll.sh
 
