@@ -30,15 +30,15 @@ function initTime {
 
 	$exeLG "mkdir $rawDir"
 
-	TsharkOut=$rawDir/$tourName-free.pcap
-	TopOut=$rawDir/$tourName-free.top
-	MemOut=$rawDir/$tourName-free.mem
+	TsharkOut=$rawDir/$tourName-$name-guided.pcap
+	TopOut=$rawDir/$tourName-$name-guided.top
+	MemOut=$rawDir/$tourName-$name-guided.mem
 
 	cmd_cpu='top -b -d 1 -p $(cat /tmp/Earth.tmp) > '$TopOut' &'
 	cmd_mem_tmp='cat /proc/$(cat /tmp/Earth.tmp)/status | grep VmRSS'
 
 
-	TimeOut=$rawDir/$tourName-free.time
+	TimeOut=$rawDir/$tourName-$name-guided.time
 	cat /dev/null > $TimeOut
 	date1=$(date +'%s')
 	lastPoi="Start"
@@ -54,11 +54,14 @@ function getTime {
 }
 
 point=1
-echo "Type tourname from [bcn, Yosemite, Alps, desierto, Venice, Horsens]"
+echo "Type tourname from [NewYork, Madrid, bcn, Yosemite, Alps, desierto, Venice, Horsens]"
 read tourName
+echo "Type name"
+read name
 initTime
-startTest $tourName
-for i in `seq 1 8`
+startTest $tourName $name
+numPoints=$(cat queries.txt | grep $tourName | wc -l)
+for i in `seq 1 $numPoints`
 do
 	query=$(cat queries.txt | grep $tourName | awk -F "@" -v point=$i 'NR==point{print $3}')
 	echo $query > /tmp/query.txt
@@ -68,4 +71,3 @@ do
 
 done
 stopTest
-
