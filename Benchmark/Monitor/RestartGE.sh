@@ -15,7 +15,7 @@ fi
 lg-ctl-master
 
 THIS_PATH="`dirname \"$0\"`"
-source $THIS_PATH/../Config/variables.conf
+source $THIS_PATH/../../Config/variables.conf
 
 time_sleep=7
 

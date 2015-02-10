@@ -22,4 +22,10 @@ for tour in  "${LIST[@]}"; do
 	bash Benchmark.sh $tour	# Runs the Tour
 done
 echo "----Finished full benchmark----"
-play ../Others/tada.wav > /dev/null 2>&1
+
+if [[ $1 == "shutdown" ]]; then
+	lg-sudo "shutdown -h 0"
+else
+	play ../../Other/tada.wav > /dev/null 2>&1
+fi
+

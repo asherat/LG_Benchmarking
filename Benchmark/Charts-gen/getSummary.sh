@@ -1,7 +1,7 @@
 #!/bin/bash
 #Calculate VR (Visualization Rate)
 path="`dirname \"$0\"`"
-. $path/../Config/variables.conf
+. $path/../../Config/variables.conf
 . $chartsCFG
 cd $path/..
 

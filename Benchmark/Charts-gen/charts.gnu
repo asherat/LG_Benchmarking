@@ -40,7 +40,7 @@ set yrange [0:max_ram]
 set output 'ram-'.tag.'.png'
 load "config.gnu"
 set ylabel 'RAM Usage MB'
-graph_type="ram_tcp"
+graph_type="ram"
 load "plotting.gnu"
 
 
@@ -55,7 +55,7 @@ set yrange [0:max_tcp]
 set output 'tcp_ext-'.tag.'.png'
 load "config.gnu"
 set ylabel 'External KB/s'
-graph_type="ram_tcp"
+graph_type="tcp"
 load "plotting.gnu"
 
 #-----------------------------------------
@@ -69,7 +69,7 @@ set yrange [0:max_tcp]
 set output 'tcp_squid-'.tag.'.png'
 load "config.gnu"
 set ylabel 'Internal KB/s'
-graph_type="ram_tcp"
+graph_type="tcp"
 load "plotting.gnu"
 
 #-----------------------------------------
@@ -82,6 +82,6 @@ set yrange [0:20]
 set output 'tcp_viewsync-'.tag.'.png'
 load "config.gnu"
 set ylabel 'ViewSync/s'
-graph_type="ram_tcp"
+graph_type="tcp"
 load "plotting.gnu"
 

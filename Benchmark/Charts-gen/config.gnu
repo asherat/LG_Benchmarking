@@ -1,6 +1,6 @@
 #number of nodes to display. Edit clusters.conf to modify
-n = `cat ../Config/clusters.conf | grep $(cat current_dir.txt) | awk '{print $3}'`
-
+#n = `cat ../../Config/clusters.conf | grep $(cat current_dir.txt) | awk '{print $3}'`
+n = 3
 # t: top margin in pixels
 t = 35.0
 # b: key height in pixels (bottom margin)

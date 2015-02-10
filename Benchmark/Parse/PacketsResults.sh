@@ -35,11 +35,14 @@ echo "Generated '$net/NW_int-$rawFile.csv'"
 echo "tshark reports generated"
 
 echo "Generating Capinfos summary"
-echo EXTERNAL > $net/NW-Summary_ext-$rawFile.txt
+echo "EXTERNAL > $net/NW-Summary_ext-$rawFile.txt"
+cat /dev/null > $net/NW-Summary_ext-$rawFile.txt
 capinfos -xyzm $tempDir/external.pcap | tail -n +2 >> $net/NW-Summary_ext-$rawFile.txt
-echo SQUID > $net/NW-Summary_squid-$rawFile.txt
+echo "SQUID > $net/NW-Summary_squid-$rawFile.txt"
+cat /dev/null > $net/NW-Summary_squid-$rawFile.txt
 capinfos -xyzm $tempDir/squid.pcap | tail -n +2 >> $net/NW-Summary_squid-$rawFile.txt
-echo VIEWSYNC > $net/NW-Summary_viewsync-$rawFile.txt
+echo "VIEWSYNC > $net/NW-Summary_viewsync-$rawFile.txt"
+cat /dev/null > $net/NW-Summary_viewsync-$rawFile.txt
 capinfos -xyzm $tempDir/viewsync.pcap | tail -n +2 >> $net/NW-Summary_viewsync-$rawFile.txt
 echo "Generated capinfos reports"
 
